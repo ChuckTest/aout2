@@ -76,5 +76,17 @@ namespace LogAn.UnitTests
         {
             return new LogAnalyzer();
         }
+
+        [Test]
+        public void IsValidLogFileName_EmptyFileName_ThrowFluent()
+        {
+            LogAnalyzer la = MakeAnalyzer();
+
+            var ex = Assert.Catch<Exception>(() => la.IsValidLogFileName(string.Empty));
+            //https://docs.nunit.org/articles/nunit/release-notes/breaking-changes.html
+            //Is.StringContaining (use Does.Contain)
+            Assert.That(ex.Message,Does.Contain("filename has to be provided"));
+        }
+
     }
 }
