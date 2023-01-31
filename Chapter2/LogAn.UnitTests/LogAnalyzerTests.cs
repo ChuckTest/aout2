@@ -39,8 +39,7 @@ namespace LogAn.UnitTests
             bool result = analyzer.IsValidLogFileName("filewithbadextension.SLF");
             Assert.True(result);
         }
-
-        [Test]
+        
         [TestCase("filewithbadextension.SLF")]
         [TestCase("filewithgoodextension.slf")]
         public void IsValidFileName_ValidExtensions_ReturnsTrue(string file)
@@ -48,8 +47,7 @@ namespace LogAn.UnitTests
             bool result = analyzer.IsValidLogFileName(file);
             Assert.True(result);
         }
-
-        [Test]
+        
         [TestCase("filewithbadextension.SLF", true)]
         [TestCase("filewithgoodextension.slf", true)]
         [TestCase("filewithbadextension.foo", false)]
@@ -63,6 +61,20 @@ namespace LogAn.UnitTests
         public void TearDown()
         {
             analyzer = null;
+        }
+
+        [Test]
+        public void IsValidLogFileName_EmptyFileName_Throws()
+        {
+            LogAnalyzer la = MakeAnalyzer();
+
+            var ex = Assert.Catch<Exception>(() => la.IsValidLogFileName(string.Empty));
+            StringAssert.Contains("filename has to be provided", ex.Message);
+        }
+
+        private LogAnalyzer MakeAnalyzer()
+        {
+            return new LogAnalyzer();
         }
     }
 }
