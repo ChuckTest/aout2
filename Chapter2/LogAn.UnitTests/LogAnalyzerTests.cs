@@ -42,6 +42,7 @@ namespace LogAn.UnitTests
         
         [TestCase("filewithbadextension.SLF")]
         [TestCase("filewithgoodextension.slf")]
+        [Category("Fast Tests")]
         public void IsValidFileName_ValidExtensions_ReturnsTrue(string file)
         {
             bool result = analyzer.IsValidLogFileName(file);
@@ -64,6 +65,7 @@ namespace LogAn.UnitTests
         }
 
         [Test]
+        [Category("Slow Tests")]
         public void IsValidLogFileName_EmptyFileName_Throws()
         {
             LogAnalyzer la = MakeAnalyzer();
@@ -78,6 +80,7 @@ namespace LogAn.UnitTests
         }
 
         [Test]
+        [Category("Slow Tests")]
         public void IsValidLogFileName_EmptyFileName_ThrowFluent()
         {
             LogAnalyzer la = MakeAnalyzer();
