@@ -91,5 +91,21 @@ namespace LogAn.UnitTests
             Assert.That(ex.Message,Does.Contain("filename has to be provided"));
         }
 
+        [Test]
+        public void IsValidFileName_WhenCalled_ChangeWasLastFileNameValid()
+        {
+            LogAnalyzer la = MakeAnalyzer();
+            la.IsValidLogFileName("badname.foo");
+            Assert.False(la.WasLastFileNameValid);
+        }
+
+        [TestCase("badfile.foo", false)]
+        [TestCase("goodfile.slf", true)]
+        public void IsValidFileName_WhenCalled_ChangeWasLastFileNameValid(string file, bool expected)
+        {
+            LogAnalyzer la = MakeAnalyzer();
+            la.IsValidLogFileName(file);
+            Assert.AreEqual(expected, la.WasLastFileNameValid);
+        }
     }
 }
