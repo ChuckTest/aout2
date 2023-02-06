@@ -46,7 +46,7 @@ namespace Chapter5.LogAn.UnitTests
         {
             IFileNameRules fakeRules= Substitute.For<IFileNameRules>();
             bool isValid = fakeRules.IsValidLogFileName("something.bla");
-            Assert.IsFalse(isValid);
+            Assert.AreEqual(default(bool), isValid);
         }
     }
 }
