@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Chapter5.LogAn
 {
-    internal class IWebService
+    public interface IWebService
     {
+        void Write(string message);
     }
 }
