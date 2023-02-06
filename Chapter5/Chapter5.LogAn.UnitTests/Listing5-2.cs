@@ -26,7 +26,7 @@ namespace Chapter5.LogAn.UnitTests
     public class FakeLogger : ILogger
     {
         public string LastError;
-        public void LoggerError(string message)
+        public void LogError(string message)
         {
             LastError = message;
         }

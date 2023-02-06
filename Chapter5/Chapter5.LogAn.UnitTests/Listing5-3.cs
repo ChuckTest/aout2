@@ -20,7 +20,7 @@ namespace Chapter5.LogAn.UnitTests
 
             analyzer.Analyze("a.txt");
 
-            logger.Received().LoggerError("Filename too short: a.txt");//sets expectation using NSub's API
+            logger.Received().LogError("Filename too short: a.txt");//sets expectation using NSub's API
         }
     }
 }
