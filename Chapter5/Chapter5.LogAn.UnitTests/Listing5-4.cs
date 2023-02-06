@@ -40,5 +40,13 @@ namespace Chapter5.LogAn.UnitTests
 
             Assert.Throws<Exception>(() => fakeRules.IsValidLogFileName("anything"));
         }
+
+        [Test]
+        public void SubstituteFor_ForInterfaces_ReturnsAFakeInterface()
+        {
+            IFileNameRules fakeRules= Substitute.For<IFileNameRules>();
+            bool isValid = fakeRules.IsValidLogFileName("something.bla");
+            Assert.IsFalse(isValid);
+        }
     }
 }
