@@ -16,5 +16,16 @@ namespace Chapter5.LogAn.UnitTests
 
             Assert.IsTrue(fakeRules.IsValidLogFileName("strict.txt"));
         }
+
+        [Test]
+        public void Returns_ArgAny_IgnoresArgument()
+        {
+            IFileNameRules fakeRules = Substitute.For<IFileNameRules>();
+
+            fakeRules.IsValidLogFileName(Arg.Any<string>())//Ignore the argument value
+                .Returns(true);
+
+            Assert.IsTrue(fakeRules.IsValidLogFileName("anything.txt"));
+        }
     }
 }
