@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter5", "Chapter5", "{52
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter5.LogAn", "Chapter5\Chapter5.LogAn\Chapter5.LogAn.csproj", "{991D2548-7383-4EB6-AA7C-0E5E149B09A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter5.LogAn.UnitTests", "Chapter5\Chapter5.LogAn.UnitTests\Chapter5.LogAn.UnitTests.csproj", "{BE718228-2475-45E0-8643-FBAF45C3FA00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{991D2548-7383-4EB6-AA7C-0E5E149B09A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{991D2548-7383-4EB6-AA7C-0E5E149B09A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{991D2548-7383-4EB6-AA7C-0E5E149B09A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE718228-2475-45E0-8643-FBAF45C3FA00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE718228-2475-45E0-8643-FBAF45C3FA00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE718228-2475-45E0-8643-FBAF45C3FA00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE718228-2475-45E0-8643-FBAF45C3FA00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{5B935035-540E-4F31-92DC-F0B0E7C6B10B} = {C6B1B3F5-3A62-4087-910B-91DF3FD9B678}
 		{43EC32B1-BCEB-407E-873A-DA74F32B77CC} = {C6B1B3F5-3A62-4087-910B-91DF3FD9B678}
 		{991D2548-7383-4EB6-AA7C-0E5E149B09A2} = {52108895-F2D3-4058-90AA-AE8B82F47F79}
+		{BE718228-2475-45E0-8643-FBAF45C3FA00} = {52108895-F2D3-4058-90AA-AE8B82F47F79}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C727EB9C-D965-4A10-8085-1903F808E969}
