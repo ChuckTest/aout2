@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace Chapter5.LogAn.UnitTests
@@ -51,6 +52,22 @@ namespace Chapter5.LogAn.UnitTests
 
             Assert.That(mockWebService.MessageToWebService, Does.Contain("fake exception"));
 
+        }
+
+        [Test]
+        public void Analyze_LoggerThrows_CallWebServiceWithNSub()
+        {
+            var mockWebService = Substitute.For<IWebService>();
+            var stubLogger = Substitute.For<ILogger>();
+            stubLogger.When(logger=>logger.LogError(Arg.Any<string>()))//Simulates exception on any input
+                .Do(info => throw new Exception("fake exception"));
+
+            var analyzer = new LogAnalyzer2(stubLogger, mockWebService);
+            analyzer.MinNameLength = 10;
+            analyzer.Analyze("Short.txt");
+
+            mockWebService.Received()//Checks that mock web service was called with a string containing "fake exception"
+                .Write(Arg.Is<string>(s => s.Contains("fake exception")));
         }
     }
 }
