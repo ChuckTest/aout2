@@ -68,6 +68,7 @@ namespace Chapter5.LogAn.UnitTests
 
             mockWebService.Received()//Checks that mock web service was called with a string containing "fake exception"
                 .Write(Arg.Is<string>(s => s.Contains("fake exception")));
+            //The final line of the test uses mockWebService.Received() and Write(Arg.Is<string>(s => s.Contains("fake exception"))) to verify that the mock web service's Write method was called with a string that contains the message "fake exception". This verifies that when the Logger throws an exception, the LogAnalyzer2 class calls the Write method on the web service with the error message.
         }
     }
 }
