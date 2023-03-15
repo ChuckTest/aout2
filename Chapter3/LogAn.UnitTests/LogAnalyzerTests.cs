@@ -22,5 +22,17 @@ namespace LogAn.UnitTests
 
             Assert.True(result);
         }
+
+        [Test]
+        public void IsValidFileName_NameSupportedExtension_ReturnsFalse()
+        {
+            FakeExtensionManager fakeExtensionManager = new FakeExtensionManager();
+            fakeExtensionManager.WillThrow = new Exception("this is fake");
+
+            LogAnalyzer log = new LogAnalyzer(fakeExtensionManager);
+            bool result = log.IsValidLogFileName("anything.anyextension");
+
+            Assert.False(result);
+        }
     }
 }
