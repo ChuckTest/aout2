@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogAn
+namespace LogAn.UnitTests
 {
-    //defines the extracted class
-    public class FileExtensionManager : IExtensionManager
+    internal class FakeExtensionManager:IExtensionManager
     {
+        public bool WillBeValid = false;
+
         public bool IsValid(string fileName)
         {
-            throw new NotImplementedException();
+            return WillBeValid;
         }
     }
 }
