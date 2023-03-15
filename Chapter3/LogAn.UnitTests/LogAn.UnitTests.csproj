@@ -44,6 +44,7 @@
     <Compile Include="AlwaysValidFakeExtensionManager.cs" />
     <Compile Include="FakeExtensionManager.cs" />
     <Compile Include="LogAnalyzer345Tests.cs" />
+    <Compile Include="LogAnalyzer346Tests.cs" />
     <Compile Include="LogAnalyzerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

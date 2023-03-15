@@ -8,22 +8,23 @@ using NUnit.Framework;
 namespace LogAn.UnitTests
 {
     [TestFixture]
-    public class LogAnalyzer345Tests
+    public class LogAnalyzer346Tests
     {
-        [Test] 
+        [Test]
         public void IsValidFileName_SupportedExtension_ReturnsTrue()
         {
             //set up the stub to use, make sure it returns true
             FakeExtensionManager fakeExtensionManager = new FakeExtensionManager();
             fakeExtensionManager.WillBeValid = true;
 
-            //create analyzer and inject stub
-            LogAnalyzer345 log = new LogAnalyzer345();
-            log.ExtensionManager = fakeExtensionManager;
+            ExtensionManagerFactory.SetManager(fakeExtensionManager);
             
+            //create analyzer and inject stub
+            LogAnalyzer346 log = new LogAnalyzer346();//the injection of stub happened in constructor of LogAnalyzer346, which invoke ExtensionManagerFactory.Create();
+
             //Assert logic assuming extension is supported
-            var result = log.IsValidLogFileName("short.ext");
-            Assert.IsTrue(result);
+            var result = log.IsValidLogFileName("short12.ext");
+            Assert.True(result);
         }
     }
 }

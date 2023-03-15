@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -14,7 +15,7 @@ namespace LogAn
 
         public LogAnalyzer346()
         {
-
+            manager = ExtensionManagerFactory.Create();
         }
 
         // let’s assume that the allowed filenames are stored somewhere on disk as a configuration setting for the application
@@ -27,7 +28,7 @@ namespace LogAn
             //Introducing a layer of indirection to avoid a direct dependency on the filesystem.The code that calls the filesystem is separated into a FileExtensionManager class, which will later be replaced with a stub in your test
             try
             {
-                return manager.IsValid(fileName);
+                return manager.IsValid(fileName) && Path.GetFileNameWithoutExtension(fileName).Length > 5;
             }
             catch
             {
