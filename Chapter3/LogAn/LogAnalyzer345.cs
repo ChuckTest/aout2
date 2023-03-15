@@ -7,14 +7,22 @@ using System.Threading.Tasks;
 
 namespace LogAn
 {
-    //3.2 Identifying a filesystem dependency in LogAn
+    //Using properties to inject dependencies. This is much simpler than 
+    //using a constructor because each test can set only the properties that it needs to get the test underway
     public class LogAnalyzer345
     {
         private IExtensionManager manager;
 
-        public LogAnalyzer345(IExtensionManager mgr)
+        public LogAnalyzer345()
         {
-            manager = mgr;
+            manager = new FileExtensionManager();
+        }
+
+        //Allows setting dependency via a property
+        public IExtensionManager ExtensionManager
+        {
+            get { return manager; }
+            set { manager = value; }
         }
 
         // let’s assume that the allowed filenames are stored somewhere on disk as a configuration setting for the application
