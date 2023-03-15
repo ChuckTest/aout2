@@ -45,6 +45,7 @@
     <Compile Include="IExtensionManager.cs" />
     <Compile Include="LogAnalyzer.cs" />
     <Compile Include="LogAnalyzer345.cs" />
+    <Compile Include="LogAnalyzer346.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
