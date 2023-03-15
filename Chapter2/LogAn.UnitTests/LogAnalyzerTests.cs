@@ -42,7 +42,7 @@ namespace LogAn.UnitTests
         
         [TestCase("filewithbadextension.SLF")]
         [TestCase("filewithgoodextension.slf")]
-        [Category("Fast Tests")]
+        [Category("Fast Tests")]//2.6.5 Setting test categories
         public void IsValidFileName_ValidExtensions_ReturnsTrue(string file)
         {
             bool result = analyzer.IsValidLogFileName(file);
@@ -64,8 +64,9 @@ namespace LogAn.UnitTests
             analyzer = null;
         }
 
+        //2.6.2 Checking for expected exceptions检验预期的异常
         [Test]
-        [Category("Slow Tests")]
+        [Category("Slow Tests")]//2.6.5 Setting test categories
         public void IsValidLogFileName_EmptyFileName_Throws()
         {
             LogAnalyzer la = MakeAnalyzer();
@@ -79,6 +80,7 @@ namespace LogAn.UnitTests
             return new LogAnalyzer();
         }
 
+        //2.6.4 NUnit’s fluent syntax
         [Test]
         [Category("Slow Tests")]
         public void IsValidLogFileName_EmptyFileName_ThrowFluent()
@@ -91,17 +93,18 @@ namespace LogAn.UnitTests
             Assert.That(ex.Message,Does.Contain("filename has to be provided"));
         }
 
+        //Listing 2.5 Testing a class by calling a method and checking the value of a property
         [Test]
-        public void IsValidFileName_WhenCalled_ChangeWasLastFileNameValid()
+        public void IsValidFileName_WhenCalled_ChangesWasLastFileNameValid()
         {
             LogAnalyzer la = MakeAnalyzer();
             la.IsValidLogFileName("badname.foo");
-            Assert.False(la.WasLastFileNameValid);
+            Assert.False(la.WasLastFileNameValid);//Asserts on state of the system
         }
 
         [TestCase("badfile.foo", false)]
         [TestCase("goodfile.slf", true)]
-        public void IsValidFileName_WhenCalled_ChangeWasLastFileNameValid(string file, bool expected)
+        public void IsValidFileName_WhenCalled_ChangesWasLastFileNameValid(string file, bool expected)
         {
             LogAnalyzer la = MakeAnalyzer();
             la.IsValidLogFileName(file);

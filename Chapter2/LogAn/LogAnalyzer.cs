@@ -4,11 +4,12 @@ namespace Chapter2.LogAn
 {
     public class LogAnalyzer
     {
+        //2.7 Testing results that are system state changes instead of return values
         public bool WasLastFileNameValid { get; set; }
 
         public bool IsValidLogFileName(string fileName)
         {
-            WasLastFileNameValid = false;
+            WasLastFileNameValid = false;//changes the state of the system
 
             if (string.IsNullOrEmpty(fileName))
             {
@@ -20,7 +21,7 @@ namespace Chapter2.LogAn
                 return false;
             }
 
-            WasLastFileNameValid = true;
+            WasLastFileNameValid = true;//changes the state of the system
             return true;
         }
     }
