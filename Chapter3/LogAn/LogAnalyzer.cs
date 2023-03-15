@@ -17,8 +17,8 @@ namespace LogAn
             //return true if configuration says extension is supported.
 
             //Introducing a layer of indirection to avoid a direct dependency on the filesystem.The code that calls the filesystem is separated into a FileExtensionManager class, which will later be replaced with a stub in your test
-            FileExtensionManager fileExtensionManager = new FileExtensionManager();
-            return fileExtensionManager.IsValid(fileName);//use the extracted class
+            IExtensionManager mgr = new FileExtensionManager();
+            return mgr.IsValid(fileName);//use the extracted class
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LogAn
 {
     //defines the extracted class
-    public class FileExtensionManager
+    public class FileExtensionManager:IExtensionManager
     {
         public bool IsValid(string fileName)
         {
